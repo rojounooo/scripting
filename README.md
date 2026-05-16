@@ -29,23 +29,28 @@ Throughout each section you will find `> **Note:**` and `> **Gotcha:**` callouts
 
 ## Lab Environment
 
-Scripts are written and tested across a physical machine and a local VirtualBox lab.
+Scripts are written and tested on a desktop workstation running VirtualBox, with an Ubuntu Server VM for Bash and Python, and a Windows AD lab for PowerShell.
 
 | Device | Role | OS | RAM | Disk | Type |
 |---|---|---|---|---|---|
-| `GRAM13` | Daily driver / Bash + Python | EndeavourOS (KDE Plasma 6) | 16 GB | 512 GB | Physical machine |
-| `DC01` | Domain Controller | Windows Server 2022 | 2 GB | 50 GB | VirtualBox VM |
-| `CLIENT01` | Managed Endpoint | Windows 10 Pro | 2 GB | 50 GB | VirtualBox VM |
+| `HOST` | Workstation / Hypervisor | Windows 11 Pro | 32 GB | 2.5 TB SSD | Physical — AMD Ryzen 9 5900X |
+| `UBUNTU-SRV` | Bash + Python environment | Ubuntu Server 24.04.4 LTS | 4 GB | 80 GB | VirtualBox VM |
+| `DC01` | Domain Controller | Windows Server 2022 Evaluation | 2 GB | 50 GB | VirtualBox VM |
+| `CLIENT01` | Managed Endpoint | Windows 11 Pro | 4 GB | 80 GB | VirtualBox VM |
 
 **Tooling**
 
 | Tool | Version / Source |
 |---|---|
 | VirtualBox | 7.x |
-| Windows Server 2022 | ISO — [Microsoft Evaluation Center](https://www.microsoft.com/en-gb/evalcenter/evaluate-windows-server-2022) |
-| Windows 10 Pro | ISO — [Microsoft Media Creation Tool](https://www.microsoft.com/en-gb/software-download/windows10) |
+| Ubuntu Server | 24.04.4 LTS — [ubuntu.com/download/server](https://ubuntu.com/download/server) |
+| Windows Server 2022 | Evaluation ISO — [Microsoft Evaluation Center](https://www.microsoft.com/en-gb/evalcenter/evaluate-windows-server-2022) |
+| Windows 11 Pro | ISO — [Microsoft Media Creation Tool](https://www.microsoft.com/en-gb/software-download/windows11) |
+| Antigravity | Latest — Google's VS Code fork |
 | PowerShell | 7.x — [github.com/PowerShell/PowerShell](https://github.com/PowerShell/PowerShell) |
 | Python | 3.10+ — [python.org](https://www.python.org/) |
+
+> WSL (Windows Subsystem for Linux) can be used as an alternative to the Ubuntu VM for Bash and Python scripts on the host directly.
 
 > PowerShell 5.1 is built into Windows and sufficient for most scripts here. PowerShell 7+ is noted where used.
 
