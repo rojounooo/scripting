@@ -57,7 +57,6 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 
 ```
 .
-├── assets/
 ├── 00-fundamentals/
 │   ├── bash/
 │   ├── powershell/
