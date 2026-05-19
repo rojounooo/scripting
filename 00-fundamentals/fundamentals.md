@@ -1,6 +1,8 @@
 
 # Fundamentals
 
+> **Note** All bash scripts should start with the shebang at the top. #!/bin/bash
+
 ## Variables & Data Types
 Variables are containers for storing data values.
 Data types are used to define the type of data that can be stored.
