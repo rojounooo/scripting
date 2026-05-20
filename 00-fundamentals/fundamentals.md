@@ -1,4 +1,3 @@
-
 # Fundamentals
 
 > **Note** All bash scripts should start with the shebang at the top. #!/bin/bash
@@ -170,10 +169,10 @@ Conditionals are used to make decisions in a program.
 # Bash
 # if, elif, else, fi
 
-# if conditon; then 
+# if [ conditon ]; then 
 #   decision
 
-# elif conditon; then
+# elif [ conditon ]; then
 #   decision 
 # else 
 #   decision
