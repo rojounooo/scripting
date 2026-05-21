@@ -29,14 +29,14 @@ Throughout each section you will find `> **Note:**` and `> **Gotcha:**` callouts
 
 ## Lab Environment
 
-Scripts are written and tested on a desktop workstation running VirtualBox, with an Ubuntu Server VM for Bash and Python, and a Windows AD lab for PowerShell.
+Scripts are written and tested on a desktop workstation running VirtualBox, with an Ubuntu Server VM for Bash and Python, and a Windows AD lab for PowerShell. A Windows laptop assigned to the domain is used in place of a Client VM
 
 | Device | Role | OS | RAM | Disk | Type |
 |---|---|---|---|---|---|
 | `HOST` | Workstation / Hypervisor | Windows 11 Pro | 32 GB | 2.5 TB SSD | Physical — AMD Ryzen 9 5900X |
 | `UBUNTU-SRV` | Bash + Python environment | Ubuntu Server 24.04.4 LTS | 4 GB | 80 GB | VirtualBox VM |
 | `DC01` | Domain Controller | Windows Server 2022 Evaluation | 2 GB | 50 GB | VirtualBox VM |
-| `CLIENT01` | Managed Endpoint | Windows 11 Pro | 4 GB | 80 GB | VirtualBox VM |
+| `CLIENT01` | Managed Endpoint | Windows 11 Pro | 16 GB | 512 GB | VirtualBox VM |
 
 **Tooling**
 
@@ -52,7 +52,6 @@ Scripts are written and tested on a desktop workstation running VirtualBox, with
 
 > WSL (Windows Subsystem for Linux) can be used as an alternative to the Ubuntu VM for Bash and Python scripts on the host directly.
 
-> PowerShell 5.1 is built into Windows and sufficient for most scripts here. PowerShell 7+ is noted where used.
 
 ---
 
