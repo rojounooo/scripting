@@ -609,10 +609,7 @@ param(
 )
 
 Write-Host "Hello, $name. Age: $age"
-```"""
 
-with open("scripting_fundamentals.md", "w", encoding="utf-8") as f:
-    f.write(md_content)
 ```
 
 > **Note:** PowerShell's `param()` block must be the first statement in the script. Arguments are named rather than positional, which makes scripts much more readable than Bash's `$1 $2` approach.
