@@ -341,13 +341,13 @@ String manipulation is the process of modifying or extracting parts of a string.
 
 str="hello world"
 
-echo ${#str}               # Length:       11
-echo ${str^^}              # Uppercase:    HELLO WORLD
-echo ${str,,}              # Lowercase:    hello world
-echo ${str/world/bash}     # Replace:      hello bash
-echo ${str:6:5}            # Substring:    world  (start index, length)
+echo "${#str}"              
+echo "${str^^}"              
+echo "${str,,}"        
+echo "${str/world/bash}"   
+echo "${str:6:5}"           
 ```
-
+> **Note** Put variables inside quotes to use as a single string. Otherwise Bash will treat them as multiple words 
 ```python
 # Python
 
