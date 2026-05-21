@@ -28,7 +28,7 @@ floatVar=123.45
 ```python
 # Python
 # Can include spaces
-# varName = value
+# Spaces are used for readability
 
 stringVar = "Hello, World!"
 integerVar = 123
@@ -41,6 +41,7 @@ nullVar = None
 # PowerShell
 # $varName = value
 # Boolean values are $true/$false
+# Variables must always begin with a $
 
 $stringVar = "Hello, World!"
 $integerVar = 123
@@ -63,13 +64,13 @@ User Output is the data displayed by the program to the user.
 # Output: echo $varName
 
 read -p "Enter your name: " name
-echo $name
+echo "$name"
 ```
 
 ```python
 # Python
 # Input: varName = input("<String>")
-# Output: print({varName)
+# Output: print(varName)
 
 name = input("Enter your name: ")
 print(name)
@@ -93,27 +94,29 @@ Type annotation is the process of specifying the data type of a variable.
 
 ```bash
 # Bash
-# Bash is dynamically typed — type annotation is not supported.
-# Use declare for limited type control.
+# declare -option varName=value
+# Note: Bash uses attributes via 'declare' instead of traditional data types.
 
-declare -i integerVar=123      # -i enforces integer
+declare -i integerVar=123      # -i enforces integer attribute
 declare -r readOnlyVar="hello" # -r makes variable read-only
 ```
 
 ```python
 # Python
-# Type annotations are optional in Python — they are hints, not enforced at runtime.
+# varName: type = value
+# Note: Type hints are optional and not strictly enforced at runtime.
 
-stringVar: str = "Hello, World!"
-integerVar: int = 123
-floatVar: float = 123.45
-booleanVar: bool = True
-nullVar: None = None
+str = "Hello, World!" # String
+int = 123 # Int
+float = 123.45 # Float
+bool = True # Boolean
+None = None # Null
 ```
 
 ```powershell
 # PowerShell
-# Place the type in square brackets before the variable name.
+# [type]$varName = value
+# Note: Enforcing the type strictly locks the variable to that data type.
 
 [string]$stringVar = "Hello, World!"
 [int]$integerVar = 123
@@ -131,32 +134,35 @@ Type casting is the process of converting a value from one data type to another.
 
 ```bash
 # Bash
-# Bash has no explicit casting. Use arithmetic expansion for integer operations.
+# varName=$(( stringVar + integer ))
+# Note: Bash relies on implicit casting or arithmetic evaluation blocks.
 
 numStr="42"
 result=$(( numStr + 8 ))  
-echo $result             
+echo "$result"           
 
 ```python
 # Python
 # varName = newType(oldVar)
+# Note: Built-in type functions perform the data conversion.
 
 stringVar = "123"
 integerVar = int(stringVar)     
 floatVar = float(integerVar)    
 backToString = str(integerVar)  
-booleanVar = bool(0)            
+booleanVar = bool(0)          
 ```
 
 ```powershell
 # PowerShell
-# varName = [newType]$oldVar
+# $varName = [newType]$oldVar
+# Note: Use target types encased in brackets to shift data types.
 
 $stringVar = "123"
 $integerVar = [int]$stringVar       
 $floatVar = [float]$integerVar      
 $backToString = [string]$integerVar 
-$booleanVar = [bool]0              
+$booleanVar = [bool]0          
 ```
 ---
 
@@ -167,16 +173,13 @@ Conditionals are used to make decisions in a program.
 
 ```bash
 # Bash
-# if, elif, else, fi
-
-# if [ conditon ]; then 
+# if [ condition ]; then
 #   decision
-
-# elif [ conditon ]; then
-#   decision 
-# else 
+# elif [ condition ]; then
 #   decision
-# fi (end)
+# else
+#   decision
+# fi
 
 if [ "$var" -eq 10 ]; then
   echo "var is 10"
@@ -189,14 +192,12 @@ fi
 
 ```python
 # Python
-# if, elif, else
 # if condition:
-#   decision 
+#   decision
 # elif condition:
 #   decision
 # else:
 #   decision
-
 
 if var == 10:
   print("var is 10")
@@ -208,14 +209,13 @@ else:
 
 ```powershell
 # PowerShell
-# if, elseif, else
-
-# if condition:
-#   decision 
-# elseif condition:
+# if (condition) {
 #   decision
-# else:
+# } elseif (condition) {
 #   decision
+# } else {
+#   decision
+# }
 
 if ($var -eq 10) {
   Write-Host "var is 10"
@@ -240,6 +240,10 @@ While loops iterate until a condition is met.
 ```bash
 # Bash
 
+# Bash
+# for var in items; do ... done
+# while [ condition ]; do ... done
+
 for i in 1 2 3 4 5; do
   echo "Welcome $i times"
 done
@@ -253,6 +257,8 @@ done
 
 ```python
 # Python
+# for var in collection: ...
+# while condition: ...
 
 for i in range(1, 6):
   print(f"Welcome {i} times")
@@ -265,7 +271,8 @@ while count <= 5:
 
 ```powershell
 # PowerShell
-# Variables inside for loops need $ prefix. Use -le for less than or equal.
+# for (init; condition; increment) { ... }
+# while (condition) { ... }
 
 for ($i = 1; $i -le 5; $i++) {
   Write-Host "Welcome $i times"
@@ -288,37 +295,40 @@ They are used to organise code, improve readability, and allow reuse.
 
 ```bash
 # Bash
+# funcName() {
+#   decision (using $1, $2 for positional arguments)
+# }
 
-# Declare
 greet() {
-  echo "Hello, $1"   # $1 is the first argument passed to the function
+  echo "Hello, $1"
 }
 
-# Call
 greet "Rojo"
 ```
 
 ```python
 # Python
+# def funcName(parameter):
+#   decision
 
-# Declare
 def greet(name):
   print(f"Hello, {name}")
 
-# Call
 greet("Rojo")
 ```
 
 ```powershell
 # PowerShell
+# function FuncName {
+#   param($parameter)
+#   decision
+# }
 
-# Declare
 function Greet {
   param($name)
   Write-Host "Hello, $name"
 }
 
-# Call
 Greet "Rojo"
 ```
 
@@ -331,47 +341,53 @@ String manipulation is the process of modifying or extracting parts of a string.
 
 ```bash
 # Bash
-# varName="strValue"
 # Length: ${#varName}
-# Convert to uppercase: ${varName^^}
-# Convert to lowercase: ${varName,,}
-# Replace a word: ${varName/wordToReplace/newWord}
-# Extract substring: ${varName:start index: length}
-
+# Upper:  ${varName^^}
+# Lower:  ${varName,,}
+# Change: ${varName/old/new}
+# Slice:  ${varName:start:length}
 
 str="hello world"
-
 echo "${#str}"              
 echo "${str^^}"              
 echo "${str,,}"        
 echo "${str/world/bash}"   
-echo "${str:6:5}"           
+echo "${str:6:5}"         
 ```
 > **Note** Put variables inside quotes to use as a single string. Otherwise Bash will treat them as multiple words 
+
 ```python
 # Python
+# Length: len(varName)
+# Upper:  varName.upper()
+# Lower:  varName.lower()
+# Change: varName.replace(old, new)
+# Slice:  varName[start:end]
 
 str = "hello world"
-
-print(len(str))               # Length:       11
-print(str.upper())            # Uppercase:    HELLO WORLD
-print(str.lower())            # Lowercase:    hello world
-print(str.replace("world", "python"))  # Replace: hello python
-print(str[6:11])              # Substring:    world
-print(str.strip())            # Trim whitespace from both ends
+print(len(str))               
+print(str.upper())            
+print(str.lower())            
+print(str.replace("world", "python"))  
+print(str)              
+print(str.strip())
 ```
 
 ```powershell
 # PowerShell
+# Length: $varName.Length
+# Upper:  $varName.ToUpper()
+# Lower:  $varName.ToLower()
+# Change: $varName.Replace(old, new)
+# Slice:  $varName.Substring(start, length)
 
 $str = "hello world"
-
-$str.Length                          # Length:       11
-$str.ToUpper()                       # Uppercase:    HELLO WORLD
-$str.ToLower()                       # Lowercase:    hello world
-$str.Replace("world", "powershell")  # Replace:      hello powershell
-$str.Substring(6, 5)                 # Substring:    world  (start index, length)
-$str.Trim()                          # Trim whitespace from both ends
+$str.Length                                  
+$str.ToUpper()                               
+$str.ToLower()                               
+$str.Replace("world", "powershell")  
+$str.Substring(6, 5)                 
+$str.Trim()
 ```
 
 ---
@@ -383,39 +399,43 @@ Lists and arrays store multiple values in a single variable.
 
 ```bash
 # Bash
-# No commas between elements. No spaces around =.
+# arrayName=(item1 item2)
+# Access: ${arrayName[index]}
+# Length: ${#arrayName[@]}
+# Append: arrayName+=(item)
 
 myArray=("Hello" "World" "Bash")
-
-echo ${myArray[0]}        # First element:  Hello
-echo ${#myArray[@]}       # Length:         3
-echo ${myArray[@]}        # All elements:   Hello World Bash
-
-myArray+=("NewItem")      # Append element
+echo "${myArray[0]}"        
+echo "${#myArray[@]}"       
+echo "${myArray[@]}"        
+myArray+=("NewItem")
 ```
 
 ```python
 # Python
-# Python uses lists — arrays require the array module or numpy.
+# listName = [item1, item2]
+# Access: listName[index]
+# Length: len(listName)
+# Append: listName.append(item)
 
 myList = ["Hello", "World", "Python"]
-
-print(myList[0])          # First element:  Hello
-print(len(myList))        # Length:         3
-myList.append("NewItem")  # Append element
-myList.remove("World")    # Remove element
+print(myList[0])          
+print(len(myList))        
+myList.append("NewItem")  
+myList.remove("World")
 ```
-
-```powershell
+```PowerShell
 # PowerShell
+# $arrayName = @(item1, item2)
+# Access: $arrayName[index]
+# Length: $arrayName.Length
+# Append: $arrayName += item
 
 $myArray = @("Hello", "World", "PowerShell")
-
-$myArray[0]               # First element:  Hello
-$myArray.Length           # Length:         3
-$myArray += "NewItem"     # Append element
+$myArray[0]               
+$myArray.Length           
+$myArray += "NewItem"
 ```
-
 ---
 
 ## File I/O
@@ -425,61 +445,56 @@ File I/O is the process of reading from and writing to files.
 
 ```bash
 # Bash
+# Read text:  content=$(cat file)
+# Overwrite:  echo "text" > file
+# Append:     echo "text" >> file
 
-# Read entire file into a variable
 content=$(cat file.txt)
 echo "$content"
 
-# Read file line by line
 while IFS= read -r line; do
   echo "$line"
 done < file.txt
 
-# Write to a file (overwrites)
 echo "Hello, World!" > file.txt
-
-# Append to a file
 echo "Another line" >> file.txt
 ```
 
 ```python
 # Python
+# Read text:  with open(file, "r") as f: content = f.read()
+# Overwrite:  with open(file, "w") as f: f.write("text")
+# Append:     with open(file, "a") as f: f.write("text")
 
-# Read from a file
 with open("file.txt", "r") as f:
   content = f.read()
   print(content)
 
-# Read line by line
 with open("file.txt", "r") as f:
   for line in f:
     print(line.strip())
 
-# Write to a file (overwrites)
 with open("file.txt", "w") as f:
   f.write("Hello, World!")
 
-# Append to a file
 with open("file.txt", "a") as f:
   f.write("Another line\n")
 ```
 
 ```powershell
 # PowerShell
+# Read text:  $content = Get-Content file
+# Overwrite:  Set-Content file "text"
+# Append:     Add-Content file "text"
 
-# Read from a file
 $content = Get-Content "file.txt"
 Write-Host $content
 
-# Read line by line
 Get-Content "file.txt" | ForEach-Object {
   Write-Host $_
 }
 
-# Write to a file (overwrites)
 Set-Content "file.txt" "Hello, World!"
-
-# Append to a file
 Add-Content "file.txt" "Another line"
 ```
 
@@ -492,18 +507,17 @@ Error handling is the process of catching and responding to errors in a program 
 
 ```bash
 # Bash
-# Bash has no try/catch. Use exit codes and conditional checks instead.
+# Action: Command checks or trapping errors globally
+# Check:  if ! command; then decision; fi
+# Global: trap 'decision' ERR
 
-# Check if a command succeeded
 if ! cp source.txt dest.txt; then
   echo "Error: copy failed"
   exit 1
 fi
 
-# Use trap to catch errors globally
 trap 'echo "An error occurred on line $LINENO"' ERR
 
-# Check exit code manually
 ls /nonexistent
 if [ $? -ne 0 ]; then
   echo "Command failed"
@@ -512,6 +526,12 @@ fi
 
 ```python
 # Python
+# try:
+#   protected_action
+# except ErrorType:
+#   fallback_decision
+# finally:
+#   cleanup_decision
 
 try:
   with open("file.txt", "r") as f:
@@ -526,6 +546,13 @@ finally:
 
 ```powershell
 # PowerShell
+# try {
+#   protected_action
+# } catch [ErrorType] {
+#   fallback_decision
+# } finally {
+#   cleanup_decision
+# }
 
 try {
   Get-Content "file.txt" -ErrorAction Stop
@@ -549,53 +576,38 @@ Script arguments allow values to be passed into a script at runtime, making scri
 
 ```bash
 # Bash
-# Arguments are accessed with $1, $2, etc. $0 is the script name.
+# Access variables sequentially using positional identifiers:
+# $0 (script path/name), $1 (first arg), $2 (second arg), $@ (all args)
 
 echo "Script name: $0"
 echo "First argument: $1"
 echo "Second argument: $2"
 echo "All arguments: $@"
 echo "Number of arguments: $#"
-
-# Usage: bash script.sh Alice 25
 ```
 
 ```python
-# Python — using sys.argv
+# Python
+# Base approach leveraging sys.argv elements:
+# sys.argv[0] (script path/name), sys.argv[1] (first arg)
 
 import sys
 
 print(f"Script name: {sys.argv[0]}")
 print(f"First argument: {sys.argv[1]}")
 print(f"All arguments: {sys.argv[1:]}")
-
-# Usage: python script.py Alice 25
-
-# Python — using argparse (recommended for anything beyond basic use)
-
-import argparse
-
-parser = argparse.ArgumentParser(description="Example script")
-parser.add_argument("name", help="Your name")
-parser.add_argument("--age", type=int, help="Your age")
-args = parser.parse_args()
-
-print(f"Hello, {args.name}. Age: {args.age}")
-
-# Usage: python script.py Alice --age 25
 ```
 
 ```powershell
-# PowerShell
+# Python
+# Base approach leveraging sys.argv elements:
+# sys.argv[0] (script path/name), sys.argv[1] (first arg)
 
-param(
-  [string]$name,
-  [int]$age
-)
+import sys
 
-Write-Host "Hello, $name. Age: $age"
-
-# Usage: .\script.ps1 -name Alice -age 25
+print(f"Script name: {sys.argv[0]}")
+print(f"First argument: {sys.argv[1]}")
+print(f"All arguments: {sys.argv[1:]}")
 ```
 
 > **Note:** PowerShell's `param()` block must be the first statement in the script. Arguments are named rather than positional, which makes scripts much more readable than Bash's `$1 $2` approach.
