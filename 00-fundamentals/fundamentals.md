@@ -331,6 +331,13 @@ String manipulation is the process of modifying or extracting parts of a string.
 
 ```bash
 # Bash
+# varName="strValue"
+# Length: ${#varName}
+# Convert to uppercase: ${varName^^}
+# Convert to lowercase: ${varName,,}
+# Replace a word: ${varName/wordToReplace/newWord}
+# Extra substring: ${varName:start index: length}
+
 
 str="hello world"
 
