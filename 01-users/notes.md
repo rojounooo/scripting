@@ -30,3 +30,6 @@
 
 ### Get-ADUSer 
 - Checks if ADUser exists
+
+### -Identity 
+- Uses the SamName to identify users 
