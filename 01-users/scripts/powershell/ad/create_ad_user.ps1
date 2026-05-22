@@ -6,12 +6,13 @@ param(
 )
 
 if (-not $name) {
-    Write-Host "Error: No name provided. Usage: .\add_ad_user.ps1 -name <name>"
+    Write-Host "Error: No name provided. Usage: .\create_ad_user.ps1 -name <name>"
     exit 1
 }
 
-$server = "192.168.1.100"
-$cred   = Get-Credential "LAB\Administrator"
+$server   = "192.168.1.100"
+$cred     = Get-Credential "LAB\Administrator"
+$password = -join ((33..126) | Get-Random -Count 12 | ForEach-Object { [char]$_ })
 
 try {
     New-ADUser -Name $name `
@@ -19,13 +20,15 @@ try {
                -UserPrincipalName "$givenName.$familyName@lab.local" `
                -GivenName $givenName `
                -Surname $familyName `
-               -AccountPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) `
+               -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) `
+               -ChangePasswordAtLogon $true `
                -Enabled $true `
                -Server $server `
                -Credential $cred `
-               -ErrorAction Stop
 
     Write-Host "User '$name' created successfully"
+    Write-Host "Temporary password: $password"
+    Write-Host "User will be prompted to change password at first login"
 } catch {
     Write-Host "Error: $_"
     exit 1
