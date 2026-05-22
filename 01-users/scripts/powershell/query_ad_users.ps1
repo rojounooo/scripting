@@ -3,7 +3,7 @@ param(
 )
 
 if (-not $Username) {
-    Write-Host "Error: No username provided. Usage: .\query-user.ps1 -Username <username>"
+    Write-Host "Error: No username provided. Usage: .\query_ad_users .ps1 -Username <username>"
     exit 1
 }
 
