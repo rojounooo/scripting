@@ -62,9 +62,7 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 ```
 .
 ├── 00-fundamentals/
-│   ├── bash/
-│   ├── powershell/
-│   └── python/
+│   ├── fundamentals.md
 ├── 01-users/
 │   ├── bash/
 │   ├── powershell/
