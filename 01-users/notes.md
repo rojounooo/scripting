@@ -18,3 +18,12 @@
 ## Python 
 
 ## PowerShell 
+
+### Get-LocalUser 
+- Checks if a local user exists for the username 
+- Case insensitive 
+
+### Security Identifier (SID) 
+- Unique string assigned by windows to identify users, groups, computers etc 
+- Unique within scope (local or domain) 
+- Never reused even if account is deleted and recreated 
