@@ -19,17 +19,20 @@ try {
 
 foreach ($row in $csvContent) {
     try {
+        $password = -join ((33..126) | Get-Random -Count 12 | ForEach-Object { [char]$_ })
+
         New-ADUser -Name $row.Name `
                    -SamAccountName $row.SamAccountName `
                    -UserPrincipalName "$($row.SamAccountName)@lab.local" `
                    -GivenName $row.GivenName `
                    -Surname $row.Surname `
-                   -AccountPassword (ConvertTo-SecureString $row.Password -AsPlainText -Force) `
+                   -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) `
+                   -ChangePasswordAtLogon $true `
                    -Enabled $true `
                    -Server $server `
                    -Credential $cred `
 
-        Write-Host "Created: $($row.SamAccountName)"
+        Write-Host "Created: $($row.SamAccountName) | Temp password: $password"
     } catch {
         Write-Host "Failed to create $($row.SamAccountName): $_"
     }
