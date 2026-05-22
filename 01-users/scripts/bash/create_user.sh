@@ -19,9 +19,9 @@ sudo useradd -m -s /bin/bash "$username"
 # Set temporary password 
 echo "$username:$password" | sudo chpasswd
 
-sudo chage -d 0 "$username""
+sudo chage -d 0 "$username"
 
 echo "$username has been created"
 echo "Temporary password: $password" 
-echo "user will be prompted to change password at first login" 
+echo "User will be prompted to change password at first login" 
 
