@@ -27,3 +27,6 @@
 - Unique string assigned by windows to identify users, groups, computers etc 
 - Unique within scope (local or domain) 
 - Never reused even if account is deleted and recreated 
+
+### Get-ADUSer 
+- Checks if ADUser exists
