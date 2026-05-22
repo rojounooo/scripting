@@ -24,7 +24,7 @@ try {
                -ChangePasswordAtLogon $true `
                -Enabled $true `
                -Server $server `
-               -Credential $cred `
+               -Credential $cred 
 
     Write-Host "User '$name' created successfully"
     Write-Host "Temporary password: $password"

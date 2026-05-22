@@ -30,7 +30,7 @@ foreach ($row in $csvContent) {
                    -ChangePasswordAtLogon $true `
                    -Enabled $true `
                    -Server $server `
-                   -Credential $cred `
+                   -Credential $cred 
 
         Write-Host "Created: $($row.SamAccountName) | Temp password: $password"
     } catch {
