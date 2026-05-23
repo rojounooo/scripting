@@ -15,6 +15,16 @@
 - Used to display user information 
 - Provides User ID (UID), Primary Group ID (GID) and additional groups 
 
+### openssl 
+- Can be used to create cryptographically strong string
+
+### chage 
+- Can be used to set expiry dates for passwords 
+
+# -s /bin/bash 
+- Explicitly set user shell 
+
+
 ## Python 
 
 ## PowerShell 
@@ -33,3 +43,15 @@
 
 ### -Identity 
 - Uses the SamName to identify users 
+
+### $Server 
+- Sets the AD DC static IP to a variable to allow connections without needing to domain join a machine
+
+### Get-Credential
+- Used to connect to the DC using credentials 
+
+### Import-Csv 
+- Used to read from a CSV file 
+
+### -join 
+- Can be used to create random strings of characters 
