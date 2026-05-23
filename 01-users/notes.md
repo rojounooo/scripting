@@ -28,6 +28,9 @@
 - Can modify a users attributes such as a login username or group 
 - Cannot rename a user currently logged in 
 
+### Expiring accounts 
+- Using chage -E 0 means epoch start 
+- This sets the account to expire immediately 
 
 
 ## Python 
@@ -60,3 +63,6 @@
 
 ### -join 
 - Can be used to create random strings of characters 
+
+### Forcing password change at logon 
+- Use `-ChangePasswordAtLogon $true` to enforce a password change at next logon 
