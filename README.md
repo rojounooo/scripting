@@ -46,7 +46,6 @@ Scripts are written and tested on a desktop workstation running VirtualBox, with
 | Ubuntu Server | 24.04.4 LTS — [ubuntu.com/download/server](https://ubuntu.com/download/server) |
 | Windows Server 2022 | Evaluation ISO — [Microsoft Evaluation Center](https://www.microsoft.com/en-gb/evalcenter/evaluate-windows-server-2022) |
 | Windows 11 Pro | ISO — [Microsoft Media Creation Tool](https://www.microsoft.com/en-gb/software-download/windows11) |
-| Antigravity | Latest — Google's VS Code fork |
 | PowerShell | 7.x — [github.com/PowerShell/PowerShell](https://github.com/PowerShell/PowerShell) |
 | Python | 3.10+ — [python.org](https://www.python.org/) |
 
@@ -66,7 +65,6 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 ├── 01-users/
 │   ├── bash/
 │   ├── powershell/
-│   └── python/
 ├── 02-networking/
 │   ├── bash/
 │   ├── powershell/
@@ -83,7 +81,6 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 │   ├── bash/
 │   ├── powershell/
 │   └── python/
-├── resources.md
 ├── LICENSE
 └── README.md
 ```
@@ -92,9 +89,9 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 
 ## Progress
 
-- [ ] 00 · Fundamentals
-- [ ] 01 · User Management
-- [ ] 02 · Networking
+- [x] 00 · Fundamentals
+- [x] 01 · User Management
+- [-] 02 · Networking
 - [ ] 03 · Logs
 - [ ] 04 · Disk & Processes
 - [ ] 05 · Helpdesk Automation
