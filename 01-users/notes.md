@@ -38,6 +38,7 @@
 
 
 ## Python 
+- Skipped for user related scripts as it would just act as a wrapper for the other scripts
 
 ## PowerShell 
 
