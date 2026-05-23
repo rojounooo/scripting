@@ -32,6 +32,10 @@
 - Using chage -E 0 means epoch start 
 - This sets the account to expire immediately 
 
+### Reading from CSV file
+- while IFS="," read -r <column name>; do 
+- end with done 
+
 
 ## Python 
 

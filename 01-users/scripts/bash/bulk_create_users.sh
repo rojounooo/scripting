@@ -9,9 +9,13 @@ fi
 
 csvFile=$1
 
+if [ ! -f "$csvFile" ]; then
+    echo "Error: File '$csvFile' not found"
+    exit 1
+fi
+
 touch credentials.txt
 
-# Read through CSV file
 while IFS=, read -r name; do
     username="$name"
     password=$(openssl rand -base64 12)
