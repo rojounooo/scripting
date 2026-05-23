@@ -34,7 +34,7 @@
 
 ### Reading from CSV file
 - while IFS="," read -r <column name>; do 
-- end with done 
+- end with done < <(tail -n +2 <file var name>) to skip headers 
 
 
 ## Python 
