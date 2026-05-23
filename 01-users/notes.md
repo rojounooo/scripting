@@ -24,6 +24,11 @@
 # -s /bin/bash 
 - Explicitly set user shell 
 
+### Usermod 
+- Can modify a users attributes such as a login username or group 
+- Cannot rename a user currently logged in 
+
+
 
 ## Python 
 
