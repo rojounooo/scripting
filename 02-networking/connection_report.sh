@@ -36,9 +36,10 @@ read -p "Port Check Port: " targetPort
 
 nc -zv "$targetPortCheck" "$targetPort"
 
-
 # Traceroute 
 
 echo "Traceroute target: " $trTarget
 traceroute $trTarget
 
+# Active Connections 
+ss -tuln 

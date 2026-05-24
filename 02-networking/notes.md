@@ -19,6 +19,9 @@
 - Shows path packets take 
 - `traceroute` command 
 
+### Active Connections 
+- `ss ` stands for socket statistics 
+- `ss -tuln` checks for TCP, UDP and listening ports
 
 ## PowerShell
 
