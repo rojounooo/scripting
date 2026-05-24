@@ -4,8 +4,6 @@ set -e
 
 # Ping 
 
-# Ping target 
-
 read -p "Ping target: " pingTarget
 
 echo "Pinging '$pingTarget'..."
@@ -22,7 +20,11 @@ echo "Running reverse lookup for '$targetIP'"
 nslookup $targetIP
 
 # IP & Interface Info 
-
+echo "Network interfaces:"
+for i in $(ip -br a | awk '{print $1}'); do 
+    echo $i 
+done
+    
 # Port Check
 
 read -p "Port Check Target: " targetPortCheck 
