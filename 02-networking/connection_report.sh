@@ -39,3 +39,6 @@ nc -zv "$targetPortCheck" "$targetPort"
 
 # Traceroute 
 
+echo "Traceroute target: " $trTarget
+traceroute $trTarget
+
