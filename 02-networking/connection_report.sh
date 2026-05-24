@@ -20,10 +20,14 @@ echo "Running reverse lookup for '$targetIP'"
 nslookup $targetIP
 
 # IP & Interface Info 
-echo "Network interfaces:"
-for i in $(ip -br a | awk '{print $1}'); do 
-    echo $i 
-done
+echo "Interfaces:"
+ip -br a | awk '{print $1, $3, $2}'
+
+echo "MAC Addresses:"
+ip -br link | awk '{print $1, $3}'
+
+echo "Default Gateway:"
+ip route | awk '/default/ {print $3}'
     
 # Port Check
 
@@ -32,4 +36,6 @@ read -p "Port Check Port: " targetPort
 
 nc -zv "$targetPortCheck" "$targetPort"
 
+
+# Traceroute 
 
