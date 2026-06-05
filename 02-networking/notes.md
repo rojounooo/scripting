@@ -58,3 +58,12 @@
 - Venvs can be used to avoid globally installing packages 
 - Use a .gitignore to prevent /venv from being committed
 
+### Ping 
+- `-c 4` has to be separate arguments for command 
+
+### Output suppression
+- `capture_output=True` suppresses all output so isn't needed 
+
+### IP & Interface Info 
+- `psutil.net_if_addrs` gets ip interfaces 
+
