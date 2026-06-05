@@ -91,8 +91,8 @@ Each topic area has its own directory containing scripts (`.sh`, `.ps1`, `.py`),
 
 - [x] 00 · Fundamentals
 - [x] 01 · User Management
-- [-] 02 · Networking
-- [ ] 03 · Logs
+- [x] 02 · Networking
+- [-] 03 · Logs
 - [ ] 04 · Disk & Processes
 - [ ] 05 · Helpdesk Automation
 
