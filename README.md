@@ -8,12 +8,6 @@ To build practical scripting skills for first-line IT support across Linux, Wind
 
 ---
 
-## Notes and Gotchas
-
-Throughout each section you will find `> **Note:**` and `> **Gotcha:**` callouts. These are not copied from documentation — they are things I ran into while writing and testing scripts, documented as I went. They reflect real troubleshooting experience rather than a clean walkthrough.
-
----
-
 ## Requirements
 
 | | Minimum | Recommended |
