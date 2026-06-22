@@ -20,8 +20,8 @@ echo "Total lines: $no_of_lines"
 if [ "$no_of_lines" -le 20 ]; then
     cat "$log_file"
 else
-    echo "Showing last 20 lines:"
-    tail -n 20 "$log_file"
+    echo "Showing latest entries:"
+    head -n 20 "$log_file"
 fi
 
 # Filter by keyword
